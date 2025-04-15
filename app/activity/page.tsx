@@ -5,11 +5,18 @@ import { useEffect, useState } from "react"
 import QuestionInterface from "../lib/question-interface"
 import Question from "./question"
 
+export interface UserTestDataInterface {
+  questionId: string;
+  selectedOption: string
+}
+
 const Activity = () => {
 
   const [progress, setProgress] = useState(0)
-  const [activity, setActivity] = useState<QuestionInterface[] | null>(null)
+  const [isResultModalOpen, setIsResultModalOpen] = useState(false)
   const [activityLength, setActivityLength] = useState<number>(0)
+  const [userAnswers, setUserAnwers] = useState<UserTestDataInterface[]>([])
+  const [activity, setActivity] = useState<QuestionInterface[] | null>(null)
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -31,9 +38,33 @@ const Activity = () => {
     fetchActivity();
   }, [])
 
+  const sendResults = async (userAnswers: UserTestDataInterface[]) => {
+    try {
+      const response = await fetch("http://localhost:5092/api/PlacementTest/GetResultFromPlacementTest", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userAnswers),
+      });
+
+      if (!response.ok) {
+        console.log(response);
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error sending answers:", error);
+    }
+  };
+
+
   const nextQuestion = () => {
     if(progress == activityLength - 1) {
-
+      sendResults(userAnswers)
+      console.log(userAnswers)
       return
     }
     setProgress(progress+1)
@@ -41,8 +72,10 @@ const Activity = () => {
   } 
   
   var barPercentage = (100 * (progress)) / activityLength
+
   return (
     <>
+
       {activity ? (
         <>
           <div className="flex gap-3 items-center mb-6 mt-10">
@@ -54,6 +87,7 @@ const Activity = () => {
           <Question
             QuestionData={activity[progress]}
             nextQuestion={nextQuestion}
+            setUserAnwers={setUserAnwers}
           />
         </>
       ) : (
