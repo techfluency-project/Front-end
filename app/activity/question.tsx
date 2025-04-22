@@ -1,16 +1,18 @@
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 import QuestionInterface from "../lib/question-interface"
 import QuestionOption from "./option"
 import { UserTestDataInterface } from "./page"
 import { Shuffle } from "lucide-react"
 
 interface QuestionProps {
+  userAnswers: UserTestDataInterface[]
   QuestionData: QuestionInterface
   nextQuestion: () => void
   setUserAnwers: React.Dispatch<React.SetStateAction<UserTestDataInterface[]>>
 }
 
 const Question = ({
+  userAnswers,
   QuestionData,
   nextQuestion,
   setUserAnwers
@@ -28,16 +30,23 @@ const Question = ({
         selectedOption: option
       };
       setUserAnwers(prevAnswers => [...prevAnswers, newAnswer]);
-      nextQuestion();
+
       setSelectedOption(null)
-    }, 1000);
+    }, 500);
   };
+
+  useEffect(() => {
+    if(userAnswers.length > 0) {
+      nextQuestion();
+    }
+  }, [userAnswers])
+  
 
   return (
     <>
     
-      <div className="w-[332px] space-y-5">
-        <p className="flex font-extrabold min-h-4 text-md">{QuestionData.questionText}</p>
+      <div className="w-[500px] space-y-5">
+        <p className="flex font-extrabold min-h-4 text-xl">{QuestionData.questionText}</p>
 
         <div className="grid grid-cols-1 gap-2 w-full">
           

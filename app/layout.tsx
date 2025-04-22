@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`flex justify-center h-full ${dmSans.className}`}>
-      <body className='flex flex-col items-center w-[332px]'>
+      <body>
         <header className='h-10 flex justify-center w-screen bg-gradient-to-r text-white from-blue-700 to-indigo-900'>
           <div className='w-[656px] flex justify-between items-center'>
             <h1 className={`${fredoka.className} font-extrabold text-2xl`}>Techfluency</h1>
