@@ -22,7 +22,7 @@ const QuestionOption = ({
         name="option"
         value={option}
         disabled={isLocked}
-        className="peer hidden"
+        className={`peer/${option} hidden`}
         onChange={() => onSelect(option)}
         checked={selectedOption === option}
       />
@@ -32,10 +32,10 @@ const QuestionOption = ({
           max-h-32 flex items-center justify-center rounded-2xl bg-gradient-to-br text-center text-2xl
           from-blue-700 to-indigo-900 p-6 transition-all 
           hover:scale-105 
-          peer-checked:from-${isCorrect ? "green-700" : "red-700"} 
-          peer-checked:to-${isCorrect ? "green-900" : "red-900"}
-          peer-checked:hover:from-${isCorrect ? "green-700" : "red-700"} 
-          peer-checked:hover:to-${isCorrect ? "green-900" : "red-900"}
+          peer-checked/${option}:from-${isCorrect ? "green-700" : "red-700"} 
+          peer-checked/${option}:to-${isCorrect ? "green-900" : "red-900"}
+          peer-checked/${option}:hover:from-${isCorrect ? "green-700" : "red-700"} 
+          peer-checked/${option}:hover:to-${isCorrect ? "green-900" : "red-900"}
         `}
       >
         <span className="capitalize text-white font-bold">{option}</span>

@@ -27,12 +27,12 @@ export default function RootLayout({
   children: React.ReactNode 
 }) {
   return (
-    <html lang="en" className={`flex justify-center h-full ${dmSans.className}`}>
+    <html lang="en" className={`flex justify-center h-screen ${dmSans.className}`}>
       <body>
-        <header className='h-10 flex justify-center w-screen bg-gradient-to-r text-white from-blue-700 to-indigo-900'>
+        <header className='h-16 flex absolute left-0 justify-center w-full bg-gradient-to-r z-10 text-white from-blue-700 to-indigo-900'>
           <div className='w-[656px] flex justify-between items-center'>
-            <h1 className={`${fredoka.className} font-extrabold text-2xl`}>Techfluency</h1>
-            <Menu />
+            <h1 className={`${fredoka.className} font-extrabold text-3xl`}>Techfluency</h1>
+            <Menu className='size-8' />
           </div>
         </header> 
         {children}

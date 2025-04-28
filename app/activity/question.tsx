@@ -1,8 +1,7 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import QuestionInterface from "../lib/question-interface"
 import QuestionOption from "./option"
 import { UserTestDataInterface } from "./page"
-import { Shuffle } from "lucide-react"
 
 interface QuestionProps {
   userAnswers: UserTestDataInterface[]
