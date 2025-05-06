@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PathActivity from "./activity"
+import Header from "../components/header";
 
 const Home = () => {
 
@@ -21,26 +22,27 @@ const Home = () => {
     }
   }, [activeId, activities]);
 
-  const handleSelect = (id: string) => {
-    setActiveId(id);
-  };
-
   return (
-    <div className="flex justify-center h-full">
-      <div className="w-[656px] flex items-center thin-scrollbar flex-col-reverse gap-10 pb-20 mt-16 overflow-y-scroll overflow-x-visible">
-        
-      {activities.map((activity) => (
-        <PathActivity
-          key={activity.id}
-          id={activity.id}
-          isActive={activeId === activity.id}
-          progress={activity.progress}
-          onSelect={setActiveId}
-        />
-      ))}
+    <>
+    
+      <Header />
+      <div className="flex justify-center h-full">
+        <div className="w-[656px] flex items-center thin-scrollbar flex-col-reverse gap-10 pb-16 mt-16 overflow-y-hidden overflow-x-visible">
+          
+        {activities.map((activity) => (
+          <PathActivity
+            key={activity.id}
+            id={activity.id}
+            isActive={activeId === activity.id}
+            progress={activity.progress}
+            onSelect={setActiveId}
+          />
+        ))}
 
+        </div>
       </div>
-    </div>
+
+    </>
   )
 }
 

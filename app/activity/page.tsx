@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import QuestionInterface from "../lib/question-interface"
 import Question from "./question"
 import { useRouter } from 'next/navigation'
+import Loading from "../components/loading"
 
 export interface UserTestDataInterface {
   questionId: string;
@@ -28,7 +29,7 @@ const Activity = () => {
   useEffect(() => {
     const fetchActivity = async () => {
       try {
-        const response = await fetch("http://localhost:5092/api/PlacementTest")
+        const response = await fetch("http://localhost:5092/api/PlacementTest/GetQuestionsForPlacementTest")
         if (!response.ok) {
           console.log(response)
           throw new Error('Network response was not ok');
@@ -97,9 +98,7 @@ const Activity = () => {
           />
         </div>
       ) : (
-        <div className="flex size-full items-center justify-center">
-          <Loader2 className="animate-spin"/>
-        </div>
+        <Loading />
       )}
 
       {resultsData && (

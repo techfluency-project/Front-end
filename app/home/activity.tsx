@@ -57,7 +57,7 @@ export default function PathActivity({ id, isActive, progress, onSelect }: {
             <div className='flex flex-col items-center justify-center gap-4'>
 
               <h3 className='text-white text-lg whitespace-nowrap'>Activity Name</h3>
-              <button className='bg-white rounded text-black text-2xl font-bold px-8'>Iniciar</button>
+              <button className='bg-white rounded text-black text-2xl font-bold px-8'>{progress == 100 ? 'Revisar' : 'Iniciar'}</button>
 
             </div>
             
