@@ -14,6 +14,7 @@ export const signin = async (
   try {
     const response = await fetch("http://localhost:5092/api/user/sign-in", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },

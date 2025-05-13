@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import QuestionInterface from "../lib/question-interface"
 import QuestionOption from "./option"
-import { UserTestDataInterface } from "./page"
+import { UserTestDataInterface } from "./activity"
 
 interface QuestionProps {
   userAnswers: UserTestDataInterface[]
@@ -44,24 +44,26 @@ const Question = ({
   return (
     <>
     
-      <div className="w-[500px] space-y-5">
-        <p className="flex font-extrabold min-h-4 text-xl">{QuestionData.questionText}</p>
+      {QuestionData.options && 
+        <div className="w-[500px] space-y-5">
+          <p className="flex font-extrabold min-h-4 text-xl">{QuestionData.questionText}</p>
 
-        <div className="grid grid-cols-1 gap-2 w-full">
-          
-          {QuestionData.options.map((option, index) => 
-            <QuestionOption 
-            key={index} 
-              option={option}
-              onSelect={handleSelect}
-              isLocked={!!selectedOption}
-              selectedOption={selectedOption}
-              correctOption={QuestionData.correctAnswer}
-            />
-          )}
-          
+          <div className="grid grid-cols-1 gap-2 w-full">
+            
+            {QuestionData.options.map((option, index) => 
+              <QuestionOption 
+                key={index} 
+                option={option}
+                onSelect={handleSelect}
+                isLocked={!!selectedOption}
+                selectedOption={selectedOption}
+                correctOption={QuestionData.correctAnswer}
+              />
+            )}
+            
+          </div>
         </div>
-      </div>
+      }
 
     </>
   )
