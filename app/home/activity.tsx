@@ -31,7 +31,6 @@ export default function PathActivity({ id, isActive, isDisabled, onSelect }: {
       }
   
       const data: any = await response.json();
-      console.log(data)
       setActivityData(data);
     } catch (error) {
       console.log(error);

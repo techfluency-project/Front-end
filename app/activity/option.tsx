@@ -29,7 +29,7 @@ const QuestionOption = ({
 
       <div
         className={`
-          max-h-32 flex items-center justify-center rounded-2xl bg-gradient-to-br text-center text-2xl
+          max-h-40 flex items-center justify-center rounded-2xl bg-gradient-to-br text-center text-4xl
           from-blue-700 to-indigo-900 p-6 transition-all 
           hover:scale-105 
           peer-checked/${option}:from-${isCorrect ? "green-700" : "red-700"} 

@@ -8,6 +8,7 @@ export const fetchWithAuth = (input: RequestInfo, init?: RequestInit): Promise<R
     if (response.status === 401) {
       handle401()
     }
+    
     return response;
   });
 };
