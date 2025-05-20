@@ -95,10 +95,10 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
                   key={i}
                   className="relative flex justify-between items-center group rounded-sm bg-gradient-to-br from-blue-700 to-indigo-900 w-full text-white p-4"
                 >
-                  <span className="truncate">""</span>
+                  <span className="truncate">{fc.question}</span>
 
                   <button
-                    onClick={() => deleteFlashcard(fc)}
+                    onClick={() => deleteFlashcard(fc.id)}
                     className="opacity-0 group-hover:opacity-100 transition-opacity text-white hover:text-red-400"
                   >
                     <Trash2 size={18} />
