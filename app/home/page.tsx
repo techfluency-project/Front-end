@@ -66,7 +66,7 @@ const Home = () => {
       <>
         <Header />
         <div className="flex justify-center h-full">
-          <div className="w-[656px] flex items-center thin-scrollbar flex-col-reverse gap-10 pb-16 mt-16 overflow-visible">
+          <div className="w-[656px] flex items-center thin-scrollbar flex-col-reverse gap-10 pb-16 mt-24 overflow-visible">
             
           {activities.map((activity, index) => {
             const previousCompleted = index === 0 || activities[index - 1].isCompleted;
