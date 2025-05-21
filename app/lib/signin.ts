@@ -7,12 +7,14 @@ export const signin = async (
 ): Promise<{ success: true; data: any } | { success: false; error: string }> => {
   event.preventDefault();
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   if (!user || !pass) {
     return { success: false, error: "Missing username or password" };
   }
 
   try {
-    const response = await fetch("http://localhost:5092/api/user/sign-in", {
+    const response = await fetch(`${apiUrl}/api/user/sign-in`, {
       method: "POST",
       credentials: 'include',
       headers: {

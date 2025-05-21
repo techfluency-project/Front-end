@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
-import { fredoka } from '../layout'
+import { fredoka } from '../lib/fonts'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)

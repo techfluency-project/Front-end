@@ -1,35 +1,19 @@
+import Head from 'next/head';
 import './globals.css';
-import type { Metadata } from 'next'
-import { DM_Sans, Fredoka } from 'next/font/google'
+import { dmSans, fredoka } from './lib/fonts';
 
-const metadata: Metadata = {
-  title: 'Techfluency',
-  description: 'English made easy',
-  icons: {
-    icon: '/logo.svg',
-  },
-}
-
-export const fredoka = Fredoka({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode 
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`flex thin-scrollbar justify-center h-screen bg-gray-100 ${dmSans.className}`}>
-      <body>
-        {children}
-      </body>
-    </html>
-  )
+    <>
+      <Head>
+        <title>Techfluency</title>
+        <meta name="description" content="English made easy" />
+        <link rel="icon" href="/logo.svg" />
+      </Head>
+
+      <html lang="en" className={`flex thin-scrollbar justify-center h-screen bg-gray-100 ${dmSans.variable} ${fredoka.variable}`}>
+        <body>{children}</body>
+      </html>
+    </>
+  );
 }

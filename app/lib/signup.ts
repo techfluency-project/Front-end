@@ -10,13 +10,15 @@ export const signup = async (
 ): Promise<{ success: true; data: any } | { success: false; error: string }> => {
   event.preventDefault();
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const validationErrors = validatePassword(pass, pass2);
   if (validationErrors.length > 0) {
     return { success: false, error: validationErrors.join(", ") };
   }
 
   try {
-    const response = await fetch("http://localhost:5092/api/user/sign-up", {
+    const response = await fetch(`${apiUrl}/api/user/sign-up`, {
       method: "POST",
       credentials: 'include',
       headers: {

@@ -7,8 +7,9 @@ export const fetchWithAuth = async (
     ...init,
   };
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const url = typeof input === 'string' ? input : input instanceof Request ? input.url : String(input);
-  const response = await fetch(`http://localhost:5092${url}`, enhancedInit);
+  const response = await fetch(`${apiUrl}${url}`, enhancedInit);
 
   // Log basic response info
   console.log('[fetchWithAuth] URL:', url);
