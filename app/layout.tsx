@@ -11,9 +11,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/logo.svg" />
       </Head>
 
-      <html lang="en" className={`flex thin-scrollbar justify-center h-screen bg-gray-100 ${dmSans.variable} ${fredoka.variable}`}>
-        <body>{children}</body>
+      <html lang="en" className={`${dmSans.variable} ${fredoka.variable}`}>
+        <body className="flex thin-scrollbar justify-center h-screen bg-gray-100">
+          {children}
+        </body>
       </html>
     </>
   );
 }
+

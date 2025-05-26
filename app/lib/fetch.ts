@@ -36,17 +36,17 @@ export const fetchWithAuth = async (
   }
 
   // 400 + "user not found" handling
-  if (response.status === 400) {
-    window.location.href = '/signin';
-    // try {
-    //   const data = await response.clone().json();
-    //   if (typeof data.message === 'string' && data.message.toLowerCase().includes('user not found')) {
-    //     handle401();
-    //   }
-    // } catch {
-    //   // ignore parse errors
-    // }
-  }
+  // if (response.status === 400) {
+  //   window.location.href = '/signin';
+  //   // try {
+  //   //   const data = await response.clone().json();
+  //   //   if (typeof data.message === 'string' && data.message.toLowerCase().includes('user not found')) {
+  //   //     handle401();
+  //   //   }
+  //   // } catch {
+  //   //   // ignore parse errors
+  //   // }
+  // }
 
   return response;
 };

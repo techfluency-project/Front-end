@@ -49,9 +49,9 @@ const Badge = ({ id, progress }: BadgeProps) => {
   const progressPercent = badge.goal > 0 ? Math.min((progress / badge.goal) * 100, 100) : 0;
 
   return (
-    <div className="flex gap-4">
-      <div className="rounded-full bg-gray-100 p-4">
-        <Medal className="text-blue-700 size-20" />
+    <div className="flex w-full gap-4">
+      <div className="rounded-full bg-gray-100 p-6">
+        <Medal className="text-blue-700 size-10" />
       </div>
       <div className="flex flex-col w-full justify-around">
         <h4 className="text-xl font-bold">{badge.title}</h4>

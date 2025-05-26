@@ -109,19 +109,14 @@ function Activity(_: ActivityProps) {
       level: placementRes.level.result,
     });
   } else {
-    await Promise.all(
-      userAnswers.map(answer =>
-        fetchWithAuth('/api/Question/QuestionAnswer', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            questionId: answer.questionId,
-            selectedOption: answer.selectedOption,
-            pathStageId: activityId,
-          }),
-        })
-      )
-    );
+    await fetchWithAuth('/api/Question/QuestionAnswer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        pathStageId: activityId,
+        answers: userAnswers
+      }),
+    })
 
     const correct = userAnswers.reduce((count, answer) => {
       const question = questions.find(q => q.id === answer.questionId);
@@ -270,4 +265,4 @@ function Activity(_: ActivityProps) {
   );
 }
 
-export default Activity
+export default Activity 

@@ -45,7 +45,7 @@ const Question = ({
     
       {QuestionData.options && 
         <div className="w-[500px] space-y-12">
-          <p className="flex font-extrabold min-h-4 text-3xl">{QuestionData.questionText}</p>
+          <p className="flex font-extrabold min-h-4 text-2xl">{QuestionData.questionText}</p>
 
           <div className="grid grid-cols-1 gap-2 w-full">
             
@@ -69,3 +69,4 @@ const Question = ({
 }
 
 export default Question
+

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../components/header"
 import { Flashcard, FlashcardGroup } from "../lib/flashcards"
 import { fetchWithAuth } from "../lib/fetch"
@@ -41,7 +41,6 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
     }
   }
 
-
   const addFlashcard = async (
     flashcardGroupId: string,
     frontQuestion: string,
@@ -61,7 +60,7 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
   }
 
   const handleDifficulty = (difficulty: 'easy' | 'medium' | 'hard') => {
-    console.log(`Flashcard ${shuffledCards[currentIndex].id} marked as ${difficulty}`)
+    console.log(`Flashcard ${shuffledCards[currentIndex].flashcardID} marked as ${difficulty}`)
 
     const nextIndex = currentIndex + 1
     if (nextIndex < shuffledCards.length) {
@@ -78,8 +77,6 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
     setIsStudying(false)
   }
 
-  console.log(group)
-
   return (
     <>
       <Header />
@@ -95,10 +92,10 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
                   key={i}
                   className="relative flex justify-between items-center group rounded-sm bg-gradient-to-br from-blue-700 to-indigo-900 w-full text-white p-4"
                 >
-                  <span className="truncate">{fc.question}</span>
+                  <span className="truncate">{fc.frontQuestion}</span>
 
                   <button
-                    onClick={() => deleteFlashcard(fc.id)}
+                    onClick={() => deleteFlashcard(fc.flashcardID)}
                     className="opacity-0 group-hover:opacity-100 transition-opacity text-white hover:text-red-400"
                   >
                     <Trash2 size={18} />
@@ -137,8 +134,8 @@ const StudyFlashcards = ({ group }: { group: FlashcardGroup }) => {
             >
               <p className="text-lg">
                 {!showAnswer
-                  ? shuffledCards[currentIndex].question
-                  : shuffledCards[currentIndex].answer}
+                  ? shuffledCards[currentIndex].frontQuestion
+                  : shuffledCards[currentIndex].backAnswer}
               </p>
               {!showAnswer && (
                 <p className="text-sm text-gray-500 mt-2">(Click to reveal answer)</p>

@@ -5,13 +5,15 @@
 // }
 
 export type Flashcard = {
-  id: string,
-  question: string
-  answer: string
+  flashcardID: string,
+  frontQuestion: string
+  backAnswer: string
 }
 
 export type FlashcardGroup = {
   id: string
+  userId: string
   name: string
+  dtCreated: string
   flashcards: Flashcard[]
 }
