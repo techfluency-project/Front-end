@@ -47,7 +47,7 @@ const Question = ({
         <div className="w-[500px] space-y-12">
           <p className="flex font-extrabold min-h-4 text-2xl">{QuestionData.questionText}</p>
 
-          <div className="grid grid-cols-1 gap-2 w-full">
+          <div className="grid grid-cols-1 gap-4 mb-8 w-full">
             
             {QuestionData.options.map((option, index) => 
               <QuestionOption 
