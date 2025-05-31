@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @layer utilities {
   /* Thin scrollbar */
   .thin-scrollbar::-webkit-scrollbar {
