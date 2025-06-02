@@ -28,7 +28,7 @@ const SignIn = () => {
     setIsLoading(false);
   
     if (result.success) {
-      console.log("Signed in:", result.data);
+      console.log("Signed in:", result);
       router.push("/home");
     } else {
       console.error("Sign-in error:", result.error);
