@@ -90,14 +90,14 @@ const SignUp = () => {
             <label htmlFor="" className="space-y-1">
               <h3 className="text-white font-bold">Username</h3>
               <div className="flex items-center rounded-sm w-full bg-white p-2 gap-2">
-                <input type="text" className="focus:outline-none focus:border-transparent w-full" onChange={(e) => setUser(e.currentTarget.value)} />
+                <input type="text" autoComplete="off"  className="focus:outline-none focus:border-transparent w-full" onChange={(e) => setUser(e.currentTarget.value)} />
                 <User className="text-blue-800" />
               </div>
             </label>
             <label htmlFor="" className="space-y-1">
               <h3 className="text-white font-bold">Email</h3>
               <div className="flex items-center rounded-sm w-full bg-white p-2 gap-2">
-                <input type="email" className="focus:outline-none focus:border-transparent w-full" onChange={(e) => setMail(e.currentTarget.value)} />
+                <input type="email" autoComplete="off" className="focus:outline-none focus:border-transparent w-full" onChange={(e) => setMail(e.currentTarget.value)} />
                 <Mail className="text-blue-800" />
               </div>
             </label>

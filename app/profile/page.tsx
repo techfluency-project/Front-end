@@ -40,25 +40,26 @@ const Profile = () => {
   }
 
   const updateUserProfile = async () => {
-    setIsLoading(true)
-    try {
-      const res = await fetchWithAuth('/api/User/update-profile', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData),
-      })
-      if (res.ok) {
-        setIsEditing(false)
-        setShowEditModal(false)
-      } else {
-        console.error('Failed to update profile')
-      }
-    } catch (error) {
-      console.error('Error updating profile:', error)
-    } finally {
-      setIsLoading(false)
+  setIsLoading(true)
+  try {
+    const res = await fetchWithAuth('/api/User/update-profile', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData),
+    })
+    if (res.ok) {
+      setIsEditing(false)
+      setShowEditModal(false)
+      window.location.reload() // 🔄 Reload the page
+    } else {
+      console.error('Failed to update profile')
     }
+  } catch (error) {
+    console.error('Error updating profile:', error)
+  } finally {
+    setIsLoading(false)
   }
+}
 
   const handleLogout = async () => {
     try {
@@ -123,7 +124,7 @@ const Profile = () => {
             <User className="text-white size-10" />
           </div>
           <div className="flex flex-col justify-center">
-            <h2 className="text-lg font-bold">{userProgress?.username}</h2>
+            <h2 className="text-lg font-bold">{userProgress?.name ? userProgress?.name : userProgress?.username}</h2>
             <span>@{userProgress?.username}</span>
           </div>
         </div>

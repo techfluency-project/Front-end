@@ -27,7 +27,7 @@ const Header = () => {
           `}
         >
           <a href="/" className="block px-4 py-2 hover:bg-gray-100">Home</a>
-          <a href="/profile" className="block px-4 py-2 hover:bg-gray-100">User Page</a>
+          <a href="/profile" className="block px-4 py-2 hover:bg-gray-100">Profile</a>
           <a href="/flashcards" className="block px-4 py-2 hover:bg-gray-100">Flashcards</a>
         </div>
       </div>
