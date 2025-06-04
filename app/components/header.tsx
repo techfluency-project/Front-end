@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
-import { fredoka } from '../lib/fonts'
+// import { fredoka } from '../lib/fonts'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className='h-16 flex absolute left-0 justify-center w-full bg-gradient-to-r z-10 text-white from-blue-700 to-indigo-900'>
       <div className='w-[656px] flex justify-between items-center relative'>
-        <h1 className={`${fredoka.className} font-extrabold text-3xl`}>Techfluency</h1>
+        <h1 className={`font-extrabold text-3xl`}>Techfluency</h1>
         <button onClick={toggleMenu} aria-label="Toggle Menu">
           <Menu className='size-8' />
         </button>
