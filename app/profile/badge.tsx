@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Medal } from "lucide-react";
+import { fetchWithAuth } from "../lib/fetch";
 
 interface BadgeProps {
   id: string;
@@ -21,7 +22,8 @@ const Badge = ({ id, progress }: BadgeProps) => {
   useEffect(() => {
     const fetchBadge = async () => {
       try {
-        const res = await fetch(`http://localhost:5092/api/Badge/GetBadgeById?id=${id}`, {
+        const res = await fetchWithAuth(`/api/Badge/GetBadgeById?id=${id}`, {
+          method: 'GET',
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
             Accept: "application/json",
@@ -41,6 +43,7 @@ const Badge = ({ id, progress }: BadgeProps) => {
 
     fetchBadge();
   }, [id]);
+
 
   if (!badge) {
     return <div className="text-gray-400 italic">Loading badge...</div>;
