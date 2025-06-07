@@ -46,9 +46,13 @@ Crie um arquivo `.env.local` na raiz do projeto com a seguinte variável de ambi
 NEXT_PUBLIC_API_URL=http://localhost:5092
 ```
 
-Essa variável define a URL base da API utilizada pela aplicação em ambiente local.
+Essa variável define a URL base da API utilizada pela aplicação em ambiente local. (UTILIZE ISSO CASO O DEPLOY TENHA EXPIRADO DEVIDO AO PROCESSAMENTO DA API)
 
 ---
+
+### Inicie o repositório Backend
+
+[Repositório](https://github.com/techfluency-project/techfluency-api) - instruções de como rodar o backend localmente
 
 ### Executando a aplicação
 
